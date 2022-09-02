@@ -89,7 +89,7 @@ Ex. name = contact, content -> phone_number is for containg phone number
 We have two templates in templates called index.html and 404.html  
 If page would not be found then template 404.html will be generated.  
 In index.html file we have references to specific content in the model.  
-Like {{cv.content.date_of_birth}} -> from model named then field content takes json date_of_birth.   
+Like {{cv.content.date_of_birth}} -> from model where name = cv takes content.date_of_birth json.   
 This allows me to generate specific content in specific place.
 
 ## Django rest api
