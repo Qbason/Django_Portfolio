@@ -2,7 +2,7 @@ version: '3'
 services:
   db:
     image: postgres
-    # restart: unless-stopped
+    restart: unless-stopped
     container_name: db_portfolio
     environment:
       - POSTGRES_DB=postgres
@@ -17,7 +17,7 @@ services:
 
   pgadmin:
     image: "dpage/pgadmin4"
-    # restart: unless-stopped
+    restart: unless-stopped
     container_name: pgadmin_portfolio
     depends_on:
       - db_portfolio
@@ -31,8 +31,12 @@ services:
       - mynetwork
   web:
     build: .
-    command: bash -c "python /code/portfolio_manager/manage.py makemigrations && python portfolio_manager/manage.py migrate && python portfolio_manager/manage.py collectstatic --no-input && python portfolio_manager/manage.py runserver 0:8000"
-    # restart: unless-stopped
+    command: bash -c "source /code/myenv_linux/bin/activate
+     && python /code/portfolio_manager/manage.py makemigrations
+      && python portfolio_manager/manage.py migrate
+       && python portfolio_manager/manage.py collectstatic --no-input
+        && apache2ctl -D FOREGROUND "
+    restart: unless-stopped
     container_name: web
     volumes:
       - ./portfolio_manager:/code/portfolio_manager

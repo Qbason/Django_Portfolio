@@ -18,19 +18,17 @@ WORKDIR /code/
 #install packages in venv python
 COPY requirements.txt /code
 RUN python3 -m venv myenv_linux
-RUN source myenv_linux/bin/activate
-RUN pip install -r requirements.txt
-RUN pip install ptvsd
+RUN source /code/myenv_linux/bin/activate && pip install -r requirements.txt && pip install ptvsd
 #copy code and configuration
-COPY portfolio_manager /code/
-
+COPY ./portfolio_manager /code/portfolio_manager
+#COPY http.conf
 ADD ./http.conf /etc/apache2/sites-available/http.conf
-# RUN a2ensite http.conf
-# RUN a2enmod proxy
-# RUN a2enmod proxy_http
-# RUN a2enmod proxy_balancer
-# RUN a2enmod lbmethod_byrequests
-# RUN service apache2 start
-# RUN service apache2 reload
+#enable site-available
+RUN a2ensite http.conf
+RUN a2enmod proxy
+RUN a2enmod proxy_http
+RUN a2enmod proxy_balancer
+RUN a2enmod lbmethod_byrequests
+RUN service apache2 start && service apache2 reload && service apache2 stop
 EXPOSE 80
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+# CMD ["apache2ctl", "-D", "FOREGROUND"]

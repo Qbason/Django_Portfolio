@@ -4,7 +4,7 @@ myenv_linux
 postgres-data
 
 portfolio_manager/portfolio_manager/secret.py
-portfolio_manager/portfolio_manager/static/*
+portfolio_manager/portfolio_manager/static/css/*
 
 
 
@@ -103,3 +103,4 @@ db.sqlite3
 
 
 
+portfolio_manager/portfolio_manager/static/rest_framework/fonts/glyphicons-halflings-regular.woff
