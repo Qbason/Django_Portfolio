@@ -123,7 +123,7 @@ The necesarry packages will be downloaded in container.
 - add user username and password
 - go to 127.0.0.1:8000/api and add page data by api or 127.0.0.1:8000/admin
 - change index.html to replace specific images, css etc.
-- go to portfolio_manager/porfolio_manger/settings.py and change your secret
+- go to portfolio_manager/porfolio_manger/ and create secret.py and generate SECRET_KEY value
 - changing username and password in docker-compose.yml
 
 

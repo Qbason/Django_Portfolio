@@ -2,7 +2,7 @@ backups
 esdata
 myenv_linux
 postgres-data
-portfolio_manager/portfolio_manager/settings.py
+# portfolio_manager/portfolio_manager/settings.py
 # Created by https://www.gitignore.io
 
 ### OSX ###
