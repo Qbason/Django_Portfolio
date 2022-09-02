@@ -132,6 +132,6 @@ The necesarry packages will be downloaded in container.
 - sudo docker compose down <-- to shutdown docker container
 
 ## Another option to see results? 
-Welcome to [jakubk.pl](jakubk.pl) to see how does it work
+Welcome to [jakubk.pl](http://jakubk.pl) to see how does it work
 
 
