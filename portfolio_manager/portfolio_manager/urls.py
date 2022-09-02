@@ -20,3 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include('info.urls'))
 ]
+
+handler404 = "portfolio_manager.views.page_not_found_view"
