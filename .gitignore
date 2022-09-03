@@ -4,7 +4,7 @@ myenv_linux
 postgres-data
 
 portfolio_manager/portfolio_manager/secret.py
-portfolio_manager/portfolio_manager/static/css/*
+portfolio_manager/portfolio_manager/static/*
 
 
 
@@ -100,7 +100,4 @@ local_settings.py
 db.sqlite3
 
 
-
-
-
-portfolio_manager/portfolio_manager/static/rest_framework/fonts/glyphicons-halflings-regular.woff
+generator_lets_encrypt/certbot/etc/letsencrypt/csr/0001_csr-certbot.pem

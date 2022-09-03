@@ -49,22 +49,8 @@ services:
       - POSTGRES_PASSWORD=1234
     depends_on:
       - db
-    #   - elasticsearch
     networks:
       - mynetwork
-  # elasticsearch:
-  #   image: launcher.gcr.io/google/elasticsearch2
-  #   container_name: elasticsearch
-  #   ports:
-  #     - "9200:9200"
-  #   volumes:
-  #     - ./esdata:/usr/share/elasticsearch/data
-  #   networks:
-  #     - mynetwork
-# volumes: 
-#   postgres-data:
-#   esdata:
-#     driver: local
 networks:
   mynetwork:
     driver: bridge
