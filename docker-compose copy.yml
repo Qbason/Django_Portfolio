@@ -40,15 +40,14 @@ services:
     container_name: web
     volumes:
       - ./portfolio_manager:/code/portfolio_manager
-      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/cert.pem:/etc/letsencrypt/live/jakubk.pl/cert.pem
-      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/fullchain.pem:/etc/letsencrypt/live/jakubk.pl/fullchain.pem
-      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/privkey.pem:/etc/letsencrypt/live/jakubk.pl/privkey.pem
+      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/magicpony.de/cert.pem:/etc/letsencrypt/live/magicpony.de/cert.pem
+      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/magicpony.de/fullchain.pem:/etc/letsencrypt/live/magicpony.de/fullchain.pem
+      - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/magicpony.de/privkey.pem:/etc/letsencrypt/live/magicpony.de/privkey.pem
     
     ports: 
       # - "8000:8000"
       - "80:80"
       - "443:443"
-
 
     environment:
       - POSTGRES_DB=postgres

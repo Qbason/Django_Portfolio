@@ -104,3 +104,4 @@ db.sqlite3
 
 generator_lets_encrypt/certbot/*
 
+portfolio_manager/portfolio_manager/static/*
