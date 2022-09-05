@@ -1,5 +1,5 @@
 # Portfolio made using Django
-## HTML, CSS, JS, Python, Docker, Bash
+## HTML, CSS, JS, Django, Django REST Framework, Python, PostgreSQL, Docker, Bash
 ## PostrgreSQL
 ### **Program contains only one model:**
 ContentWebPage, which has fields like  
