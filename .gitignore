@@ -5,6 +5,8 @@ postgres-data
 
 portfolio_manager/portfolio_manager/secret.py
 portfolio_manager/portfolio_manager/static/*
+portfolio_manager/portfolio_manager/generator_lets_encrypt/certbot
+portfolio_manager/portfolio_manager/generator_lets_encrypt/certbot/*
 
 
 
@@ -100,4 +102,5 @@ local_settings.py
 db.sqlite3
 
 
-generator_lets_encrypt/certbot/etc/letsencrypt/csr/0001_csr-certbot.pem
+generator_lets_encrypt/certbot/*
+

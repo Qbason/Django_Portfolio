@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  le-apache:
+    container_name: 'le-apache'
+    image: lets-encrypt-apache:latest
+    build:
+      context: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./httpd.conf:/etc/apache2/httpd.conf
+      - ./html:/var/www/localhost/htdocs/
+    networks:
+      - docker-network
+    environment: 
+      - server_name=jakubk.pl
+  certbot:
+    container_name: certbot
+    image: certbot/certbot:latest
+
+    command: >-
+            certonly --webroot --email kuba1095@gmail.com --agree-tos --no-eff-email --webroot-path=/data/letsencrypt -d jakubk.pl -d www.jakubk.pl
+    volumes:
+      - ./certbot/etc/letsencrypt:/etc/letsencrypt
+      - ./certbot/var/lib/letsencrypt:/var/lib/letsencrypt
+      - ./certbot/var/log/letsencrypt:/var/log/letsencrypt
+      - ./html:/data/letsencrypt
+    depends_on:
+      - le-apache
+networks:
+  docker-network:
+    driver: bridge
