@@ -1,5 +1,7 @@
 # Portfolio made using Django
 ## HTML, CSS, JS, Django, Django REST Framework, Python, PostgreSQL, Docker, Bash, Apache2, Let's Encrypt
+## Webpage portofolio
+Welcome to [jakubk.pl](http://jakubk.pl) to see how does it work
 ## PostrgreSQL
 ### **Program contains only one model:**
 ContentWebPage, which has fields like  
@@ -229,7 +231,7 @@ Then:
 - sudo docker compose up -d <-- to run docker container in background
 - sudo docker compose down <-- to shutdown docker container
 
-## Another option to see results? 
-Welcome to [jakubk.pl](http://jakubk.pl) to see how does it work
 
+### Ideas 
+Make Flutter app to configure portfolio
 
