@@ -100,7 +100,7 @@ local_settings.py
 
 
 db.sqlite3
-
+.env
 
 generator_lets_encrypt/certbot/*
 portfolio_manager/portfolio_manager/static/*
