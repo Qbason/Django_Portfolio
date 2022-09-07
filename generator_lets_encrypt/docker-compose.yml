@@ -13,13 +13,12 @@ services:
     networks:
       - docker-network
     environment: 
-      - server_name=jakubk.pl
+      - server_name=${server_name}
   certbot:
     container_name: certbot
     image: certbot/certbot:latest
-
     command: >-
-            certonly --webroot --email kuba1095@gmail.com --agree-tos --no-eff-email --webroot-path=/data/letsencrypt -d jakubk.pl -d www.jakubk.pl
+            certonly --webroot --email ${email} --agree-tos --no-eff-email --webroot-path=/data/letsencrypt -d ${server_name} -d ${server_full_name}
     volumes:
       - ./certbot/etc/letsencrypt:/etc/letsencrypt
       - ./certbot/var/lib/letsencrypt:/var/lib/letsencrypt
@@ -27,6 +26,7 @@ services:
       - ./html:/data/letsencrypt
     depends_on:
       - le-apache
+
 networks:
   docker-network:
     driver: bridge
