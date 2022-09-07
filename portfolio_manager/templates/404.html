@@ -14,22 +14,14 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
             <div class="container">
-              <a class="navbar-brand" href="#">Jakub Kościelny</a>
+              <a class="navbar-brand" href="/">Jakub Kościelny</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link" aria-current="page" href="#whoami" id="one">{{nav.whoami}}</a>
 
-
-                  <a class="nav-link d-none" href="#offer" id="two" >Co oferuję</a>
-
-
-                  <a class="nav-link" href="#cv" id="three">{{nav.cv}}</a>
-
-
-                  <a class="nav-link" href="#contact" id="four">{{nav.contact}}</a>
+                    
 
 
                 </div>
@@ -101,149 +93,6 @@
 </body>
 <script src="{% static 'js/bootstrap.js' %}" async></script>
 <script src="{% static 'js/popper.min.js' %}" async></script>
-<script>
-    //calculate the age
-    const year = 1999;
-    var new_object_date_for_years = new Date();
-    let elements = document.getElementsByClassName("years")
-    for (index in elements){
-        elements[index].innerHTML = (new_object_date_for_years.getFullYear()-year).toString();
-    }
-
-    //when the page wii be loaded
-    window.addEventListener('load',
-        (event)=>{
-
-            create_events_for_dict();
-            show_first_content_or_specific();
-            
-        }
-    );
-
-
-    {
-
-
-        //create dictionary with references to specific divs
-        let dict_of_ids = {
-            "one":"whoami",    
-            "two":"offer",    
-            "three":"cv",    
-            "four":"contact",  
-
-        };
-
-
-
-        //show content
-        show_content_by_event = (evt) =>{
-            //hide the earlier
-            hide_content()
-            //show only specific content
-            document.getElementById(dict_of_ids[evt.target.id]).classList.remove("d-none");
-
-
-        }
-
-        show_content_by_name = (name)=>{
-
-            //hide all
-            hide_content()
-            //show only specific content
-            document.getElementById(name).classList.remove("d-none")
-
-
-        }
-
-        //hide content
-        hide_content = () =>{
-                
-            for(key in dict_of_ids){
-                document.getElementById(dict_of_ids[key]).classList.add("d-none");
-            }      
-        }
-
-        //create event for specific elements on webpage
-        create_events_for_dict = () =>{
-            
-            //creating events
-            for(key in dict_of_ids){
-
-                    document.getElementById(key).addEventListener("click",show_content_by_event);
-
-            }
-        }
-        //show first content
-        show_first_content = () =>{
-            let first_key_in_dict = Object.keys(dict_of_ids)[0]
-            document.getElementById(dict_of_ids[first_key_in_dict]).classList.remove("d-none");
-
-        }
-
-        //perform only designated content
-
-        //check link, if it contains page (another)
-        check_link_for_tab = (url) =>{
-
-            array_from_splitedurl = url.split("#");
-            if(array_from_splitedurl.length==2){
-                
-                tab = array_from_splitedurl[1]
-
-                //sprawdzamy, czy dany tab istnieje
-                if(Object.values(dict_of_ids).indexOf(tab)>-1){
-                    //console.log("We got this: "+tab)
-                    return tab;
-                }
-                
-
-            }
-
-            return null;
-
-        };
-        
-        //checking, if someone hass been forwared on specific page
-        show_first_content_or_specific = () =>{
-            let url = window.location.href;
-            result_from_check_link = check_link_for_tab(url);
-
-            //podejmujemy decyzję, czy pokazać defaultowy kontent, czy nie
-            if(result_from_check_link!=null){
-                show_content_by_name(result_from_check_link)
-            }else{
-                hide_content()
-                show_first_content()
-            }
-        }
-
-        
-
-
-    }
-
-
-    //function, which refresh time on page
-    refresh_time_parent = () =>{
-        //reference to component
-        var element = document.getElementById("czas")
-        //create object Date
-        var currenttime = new Date()
-        refresh_time = () =>{
-            //change value for object
-            currenttime.setSeconds(currenttime.getSeconds()+1)
-            //changing content for element on webpage
-            element.innerHTML = currenttime.getHours()+":"+((currenttime.getMinutes()<10?'0':'')+currenttime.getMinutes())+":"+((currenttime.getSeconds()<10?'0':'')+currenttime.getSeconds())
-        }
-    }
-
-    //first run parent to create object, which will be changing
-    refresh_time_parent()
-    var t = setInterval(refresh_time,1000)
-
-    
-
-</script>
       
 
 </html>

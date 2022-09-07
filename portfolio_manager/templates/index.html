@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
             <div class="container">
-              <a class="navbar-brand" href="#">Jakub Kościelny</a>
+              <a class="navbar-brand" href="/">Jakub Kościelny</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -178,9 +178,9 @@
                                     <div class = "ms-2 me-auto">
                                         <div class = "fs-6">{{education.period}}</div>
                                         <div class = "fw-bold">{{education.where}}</div>
-                                        {% if education.major %}<p class = "m-0"> {{education.major_title}} {{education.major}} </p>{% endif %}
+                                        {% if education.major %}<p class = "m-0"> {{education.major_title}}: {{education.major}} </p>{% endif %}
                                         {% if  education.specialization%}<p class = "m-0"> {{education.specialization_title}}: {{education.specialization}} </p>{% endif %}
-                                        <p class = "m-0"> {{education.education_level_title}}{{education.education_level}} </p>
+                                        <p class = "m-0"> {{education.education_level_title}}: {{education.education_level}} </p>
                                     </div>
                                   
                                 </li>
