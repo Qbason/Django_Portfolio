@@ -1,13 +1,13 @@
-version: '3'
+version: '3.7'
 services:
   db:
     image: postgres
     restart: unless-stopped
     container_name: db_portfolio
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     networks:
@@ -22,9 +22,9 @@ services:
     depends_on:
       - db_portfolio
     environment:
-      PGADMIN_DEFAULT_EMAIL: "kuba1095@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "1234"
-      PGADMIN_LISTEN_PORT: 8001
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
     ports: 
       - "5050:8001"
     networks:
@@ -53,9 +53,9 @@ services:
       - "443:443"
     # for setting database: name, login, password 
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
       - db
     networks:
