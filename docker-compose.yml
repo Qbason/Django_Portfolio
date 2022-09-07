@@ -14,7 +14,7 @@ services:
       - mynetwork
     expose:
     - 5432
-
+  # This is for our database management   
   pgadmin:
     image: "dpage/pgadmin4"
     restart: unless-stopped
@@ -29,6 +29,7 @@ services:
       - "5050:8001"
     networks:
       - mynetwork
+  #web -> activate venv makemigrations migrate collectstatic then run apache2ctl
   web:
     build: .
     command: bash -c "source /code/myenv_linux/bin/activate
@@ -39,17 +40,18 @@ services:
     restart: unless-stopped
     container_name: web
     volumes:
+      # copy our code to specific place to make changes in time 
       - ./portfolio_manager:/code/portfolio_manager
+      # copy our certs https
       - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/cert.pem:/etc/letsencrypt/live/jakubk.pl/cert.pem
       - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/fullchain.pem:/etc/letsencrypt/live/jakubk.pl/fullchain.pem
       - ./generator_lets_encrypt/certbot/etc/letsencrypt/live/jakubk.pl/privkey.pem:/etc/letsencrypt/live/jakubk.pl/privkey.pem
+      - ./http.conf:/etc/apache2/sites-available/http.conf
     
     ports: 
-      # - "8000:8000"
       - "80:80"
       - "443:443"
-
-
+    # for setting database: name, login, password 
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=user
