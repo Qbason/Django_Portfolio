@@ -1,7 +1,9 @@
 # Portfolio made using Django
 ## HTML, CSS, JS, Django, Django REST Framework, Python, PostgreSQL, Docker, Bash, Apache2, Let's Encrypt
-## Webpage portofolio
-Welcome to [jakubk.pl](http://jakubk.pl) to see how does it work
+## Portfolio webpage
+Welcome to 
+### [jakubk.pl](http://jakubk.pl)
+ to see how does it work
 ## PostrgreSQL
 ### **Program contains only one model:**
 ContentWebPage, which has fields like  
