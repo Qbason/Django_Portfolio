@@ -1,8 +1,5 @@
-from multiprocessing import context
 from info.serializers import ContentWebPageSerializer
-
 from info.models import ContentWebPage
-
 
 #for rendering in html
 from django.shortcuts import render
