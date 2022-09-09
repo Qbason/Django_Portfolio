@@ -1,98 +1,14 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Jakub Kościelny</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" >
-</head>
-
-<body >
-    <header>
-        <nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
-            <div class="container">
-              <a class="navbar-brand" href="/">Jakub Kościelny</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-
-                    
+{% extends 'base.html' %}
+{% load static %}
 
 
-                </div>
-                <div id="czas" class="text-light ms-auto me-3">
-                    00:00:00
-                 </div>
-                <div class="me-lg-0 me-sm-5">
-                    <a href="{% url 'lang_pl' %}" class="me-1 btn btn-light" style="background-image: linear-gradient(white 50%, red 50%);" id="to-pl">PL</a>
-                    <a href="{% url 'lang_en' %}" class="btn btn-light" id="to-en">ENG</a>
-                </div>
-             
-              </div>
-              
-            </div>
-          </nav>
+{% block content %}
+<div class="row m-2 p-2">
+    <div class="col-lg-5 col-sm-0"></div>
+    <div class="col-lg-2 col-sm-12 text-center alert alert-danger">
+        Sorry, something went wrong! Page not found! Error 404!
+    </div>
 
-    </header>
-    <main>
-        <section class="container p-0">
-            <div class="row m-2 p-2">
-                <div class="col-lg-5 col-sm-0"></div>
-                <div class="col-lg-2 col-sm-12 text-center alert alert-danger">
-                    Sorry, something went wrong! Page not found! Error 404!
-                </div>
-            </div>
-        </section>
-        
-    </main>
+</div>
 
-    <footer class="container-fluid">
-
-        <div class="row row-cols-6 py-5 mt-5 border-top border-bottom">
-            <div class="col-4 ms-auto">
-                <p class="text-muted ">
-                    {% if whoami %}
-                    {{whoami.content.who_made_page}}
-                    {% endif %}
-                </p>
-                <p>©Copyright 2022</p>
-            </div>
-        
-            <div class="col mx-auto">
-                <h5 class="">
-                    {% if whoami %}
-                    {{whoami.content.additional_information}}
-                    {% endif %}
-                </h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="https://github.com/Qbason" class="nav-link p-0 text-muted">GitHub <i class="bi bi-github"></i></a></li>
-                    <li class="nav-item mb-2"><a href="https://docs.microsoft.com/en-gb/users/jakubkocielny/" class="nav-link p-0 text-muted">Microsoft <i class="bi bi-microsoft"></i></a></li>
-                </ul>
-            </div>
-        
-            <div class="col me-auto">
-                <h5 class="">
-                    {% if whoami %}
-                    {{whoami.content.localization}}
-                    {% endif %}
-                </h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">Jakub Kościelny</li>
-                    <li class="nav-item mb-2">43-417 Kaczyce</li>
-                    <li class="nav-item mb-2">Dworkowa 12</li>
-                </ul>
-            </div>
-
-        </div>
-    </footer>
-</body>
-<script src="{% static 'js/bootstrap.js' %}" async></script>
-<script src="{% static 'js/popper.min.js' %}" async></script>
-      
-
-</html>
+{% endblock %}
