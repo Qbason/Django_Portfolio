@@ -37,6 +37,7 @@ services:
       && python portfolio_manager/manage.py migrate
        && python portfolio_manager/manage.py collectstatic --no-input
         && apache2ctl -D FOREGROUND "
+        # && python portfolio_manager/manage.py runserver 0:80"
     restart: unless-stopped
     container_name: web
     volumes:
